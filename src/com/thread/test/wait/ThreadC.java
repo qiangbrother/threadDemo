@@ -21,6 +21,7 @@ public class ThreadC extends Thread{
             //lock.notifyAll();
             //notify(),随机通知该共享资源队列线程中的一个线程
             lock.notify();
+            System.out.println("notify====");
         }
 
     }
