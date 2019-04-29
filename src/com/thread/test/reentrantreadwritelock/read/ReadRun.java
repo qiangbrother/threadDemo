@@ -1,0 +1,28 @@
+package com.thread.test.reentrantreadwritelock.read;
+
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+/**
+
+* @Description:    测试读读同步
+* @Author:         JackQiang
+* @CreateDate:     2019/4/25 15:28
+* @UpdateRemark:
+*/
+public class ReadRun {
+
+    private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public void read(){
+
+        try {
+            lock.readLock().lock();
+            System.out.println("线程"+Thread.currentThread().getName()+":"+System.currentTimeMillis());
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            lock.readLock().unlock();
+        }
+    }
+}
